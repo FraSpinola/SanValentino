@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="counter">
+        <h1>Il mio ragazzo mi ama da:</h1>
+        <p id="timeTogether"></p>
+        <img src="giphy.gif" alt="cat">
+    </div>
+
+    <script>
+        function updateCounter() {
+            const startDate = new Date('2024-02-16T00:00:00');
+            const now = new Date();
+            const delta = now - startDate;
+
+            const days = Math.floor(delta / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((delta % (1000 * 60)) / 1000);
+
+            document.getElementById('timeTogether').innerText = `${days} giorni, ${hours} ore, ${minutes} minuti, ${seconds} secondi`;
+        }
+
+        setInterval(updateCounter, 1000);
+    </script>
+</body>
+</html>
